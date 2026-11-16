@@ -10,7 +10,8 @@ discrete columns one-hot.
   mode is scored as a Gaussian whose spread (one per position) is learned; a mode or a
   category is scored by cross-entropy. Reconstruction is weighted by 2, as published.
 - Sampling: latent codes from a standard normal are decoded; positions get noise with the
-  learned spread, modes and categories take the most likely value.
+  learned spread, and modes and categories are drawn from the decoder's probabilities
+  (taking the most likely value all but removes rare categories on a small sample).
 
 Written here for the same reasons as CTGAN (see docs/decisions.md).
 """
