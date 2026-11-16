@@ -63,7 +63,7 @@ def test_candidate_pool_is_balanced(reference):
     assert not set(pool[~pool["member"]]["case_number"]) & set(sample["case_number"])
 
 
-def test_calibration_and_sample_use_profile_column_names():
+def test_calibration_and_sample_use_profile_column_names(data_dir):
     from synthgen.core.models import ColumnSpec, SchemaProfile
     from synthgen.reference_world.stores import calibration_for_profile, sample_for_profile
 
@@ -78,7 +78,7 @@ def test_calibration_and_sample_use_profile_column_names():
             ColumnSpec("notes", type="text"),
         ],
     )
-    cal = yaml.safe_load((ROOT / "data" / "calibration" / "calibration_stats.yaml").read_text())
+    cal = yaml.safe_load((data_dir / "calibration" / "calibration_stats.yaml").read_text())
     stats = calibration_for_profile(cal, profile)
     assert set(stats.numeric) == {"amt"}
     assert "crt" in stats.categorical and "court" not in stats.categorical
@@ -86,7 +86,7 @@ def test_calibration_and_sample_use_profile_column_names():
     assert ("iss", "hrg") in stats.gaps_days
     assert "notes" not in stats.null_rate
 
-    sample = pd.read_csv(ROOT / "data" / "calibration" / "scenario2_sample.csv", dtype=str)
+    sample = pd.read_csv(data_dir / "calibration" / "scenario2_sample.csv", dtype=str)
     mapped = sample_for_profile(sample, profile)
     assert list(mapped.columns) == ["amt", "crt", "iss", "hrg", "def_flag", "notes"]
     assert mapped["notes"].isna().all()
