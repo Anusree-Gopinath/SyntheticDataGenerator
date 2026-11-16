@@ -86,7 +86,9 @@ for what each file holds.
 make test
 ```
 
-Expect `116 passed`. Without the reference data from step 5, two tests are skipped.
+Expect `116 passed` with every extra installed. Tests that need something you haven't set up
+are skipped with the reason, not failed: four without the reference data from step 5, three
+without PyTorch (`deep`), one without scikit-learn. `pytest -rs` lists the reasons.
 
 ## 7. Start the app
 
