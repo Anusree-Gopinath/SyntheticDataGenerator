@@ -53,16 +53,13 @@ def test_roc_auc_and_attacks():
     assert result["accuracy"] == 1.0
 
 
-def test_held_back_gap_is_zero_on_the_reference_world():
-    from pathlib import Path
-
+def test_held_back_gap_is_zero_on_the_reference_world(data_dir):
     import yaml
 
     from synthgen.evaluation.realism import held_back_gaps
 
-    root = Path(__file__).resolve().parents[1]
-    reference = pd.read_csv(root / "data" / "reference" / "reference.csv", dtype=str)
-    held = yaml.safe_load((root / "data" / "evaluation" / "held_back_stats.yaml").read_text())
+    reference = pd.read_csv(data_dir / "reference" / "reference.csv", dtype=str)
+    held = yaml.safe_load((data_dir / "evaluation" / "held_back_stats.yaml").read_text())
     gaps = held_back_gaps(reference, held)
     assert len(gaps) == 7
     assert max(gaps.values()) < 0.01  # held-back statistics were computed from this data
