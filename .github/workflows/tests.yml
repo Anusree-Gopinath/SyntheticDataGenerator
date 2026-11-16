@@ -12,6 +12,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -e ".[dev]"
+      # scikit-learn for the embedding classifier's learned model; PyTorch-based tests
+      # (CTGAN, TVAE) skip, keeping the job small
+      - run: pip install -e ".[dev]" scikit-learn
       - run: ruff check synthgen tests
-      - run: pytest
+      # data/ is never committed: build the reference world and its stores first
+      - run: python -m synthgen.reference_world.simulator --config config/reference_world.yaml
+      - run: python -m synthgen.reference_world.stores --config config/reference_world.yaml
+      - run: pytest -rs
