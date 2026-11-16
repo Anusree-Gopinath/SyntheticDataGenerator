@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Secrets and local settings
+.env
+*.local.yaml
+
+# Data: generated locally, never committed
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/README.md
+
+# Experiment tracking
+mlruns/
+mlartifacts/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Streamlit agent skills (environment-specific symlinks)
+.agents/skills/developing-with-streamlit
+.claude/skills/developing-with-streamlit

@@ -1,0 +1,6 @@
+case_ref,prosecuting_authority,offence_details,offence_location,claim_value,payment_reference,issue_date,hearing_date,time_of_hearing,court_hearing_location,status
+K41RH916,council,Money claim,Nottingham,1806.64,,17/11/2025,10/10/2026,,Nottingham,Adjourned
+K12RR845,council,Possession claim,Manchester,683.32,Ref_123,30/01/2025,30/10/2025,16:30:00,Manchester,Granted
+K19KS339,council,Housing disrepair,Leeds,4284.61,Ref_908,16/04/2025,19/09/2025,,Leeds,Issued
+K95YH236,council,Money claim,Cardiff,3570.45,,16/03/2024,,,Cardiff,Withdrawn
+K67NM509,council,Money claim,Manchester,1430.87,,19/06/2025,10/03/2026,,Manchester,Listed

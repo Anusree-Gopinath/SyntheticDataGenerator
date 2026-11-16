@@ -1,0 +1,122 @@
+profile_id: s01-civil-money-claims
+version: 7
+columns:
+- name: case_number
+  concept: case_reference
+  type: string
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values: null
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.865
+- name: claim_type
+  concept: claim_type
+  type: category
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values:
+  - Money claim
+  - Possession claim
+  - Personal injury
+  - Housing disrepair
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.686
+- name: claim_value
+  concept: claim_amount
+  type: decimal
+  pattern: null
+  min: null
+  max: null
+  decimals: 2
+  allowed_values: null
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.734
+- name: issue_date
+  concept: issue_date
+  type: date
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values: null
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.822
+- name: hearing_date
+  concept: hearing_date
+  type: date
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values: null
+  unique: false
+  nullable: true
+  inferred_by:
+    rules: 1.0
+    embedding: 0.85
+- name: court
+  concept: court_name
+  type: category
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values: null
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.655
+- name: status
+  concept: case_status
+  type: category
+  pattern: null
+  min: null
+  max: null
+  decimals: null
+  allowed_values:
+  - Issued
+  - Defended
+  - Listed
+  - Heard
+  - Settled
+  - Judgment
+  - Closed
+  unique: false
+  nullable: false
+  inferred_by:
+    rules: 1.0
+    embedding: 0.818
+rules:
+- id: R1
+  type: uniqueness
+  description: Case references are unique
+  expr: unique(case_number)
+  when: null
+  source: dictionary
+  approved: true
+- id: R2
+  type: temporal_order
+  description: Hearing date is after the issue date
+  expr: hearing_date > issue_date
+  when: hearing_date is not null
+  source: dictionary
+  approved: true
+approved_by: Tester1
+approved_at: '2026-11-13T17:56:09Z'

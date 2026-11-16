@@ -1,0 +1,6 @@
+case_ref,jurisdiction,date_received,hearing_date,outcome,region,appeal_lodged
+TR20251501,Unfair dismissal,2025-06-04,2025-10-01,Adjourned,North East,false
+TR20252082,Immigration appeal,2025-05-29,2025-08-28,Adjourned,North West,false
+TR20254591,Benefits appeal,2024-07-11,2024-10-07,Granted,London,false
+TR20252818,Benefits appeal,2024-09-06,2025-09-23,Granted,South East,false
+TR20255091,Unfair dismissal,2024-09-06,,,Wales,false

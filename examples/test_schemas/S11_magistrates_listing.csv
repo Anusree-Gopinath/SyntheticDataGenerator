@@ -1,0 +1,6 @@
+case_number,offence_type,plea,hearing_date,courtroom,adj_count,interp_req
+CR25986615,Criminal damage,Guilty,2026-04-23,10,1,N
+CR59322326,Fraud,No plea,2025-11-25,10,0,N
+CR24295855,Theft,No plea,2025-08-31,6,0,N
+CR44873982,Criminal damage,Guilty,2026-10-26,10,1,Y
+CR26179046,Motoring,No plea,2025-04-02,9,0,Y

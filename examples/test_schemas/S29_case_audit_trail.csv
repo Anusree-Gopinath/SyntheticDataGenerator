@@ -1,0 +1,6 @@
+case_ref,stage,created_user,doc_count,case_notes,legacy_flag
+K36WZ256,Issued,U4484,16,,true
+K93MU455,Judgment,U7699,3,Fictional note: bundle filed late,false
+K49VR672,Issued,U7343,2,Fictional note: bundle filed late,true
+K10YF087,Heard,U8931,17,,false
+K23ZH794,Listed,U9183,3,Fictional note: settlement discussed,true

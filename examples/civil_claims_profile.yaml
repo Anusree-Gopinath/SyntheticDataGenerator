@@ -1,0 +1,48 @@
+profile_id: civil-claims-demo
+version: 1
+approved_by: null
+approved_at: null
+columns:
+  - name: case_number
+    concept: case_reference
+    type: string
+    pattern: "K[0-9]{2}[A-Z]{2}[0-9]{3}"
+    unique: true
+  - name: claim_type
+    concept: claim_type
+    type: category
+    allowed_values: [Money claim, Possession claim, Personal injury, Housing disrepair]
+  - name: claim_value
+    concept: claim_amount
+    type: decimal
+    min: 0.01
+    max: 100000
+    decimals: 2
+  - name: issue_date
+    concept: issue_date
+    type: date
+  - name: hearing_date
+    concept: hearing_date
+    type: date
+    nullable: true
+  - name: court
+    concept: court_name
+    type: category
+    allowed_values: [Cardiff, Manchester, Birmingham, Leeds]
+  - name: status
+    concept: case_status
+    type: category
+    allowed_values: [Issued, Defended, Listed]
+rules:
+  - id: R1
+    type: temporal_order
+    description: Hearing date must be after issue date
+    expr: hearing_date > issue_date
+    when: hearing_date is not null
+    source: dictionary
+  - id: R2
+    type: conditional_presence
+    description: Listed cases must have a hearing date
+    expr: hearing_date is not null
+    when: status == 'Listed'
+    source: llm

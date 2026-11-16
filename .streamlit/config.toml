@@ -1,0 +1,93 @@
+# SynthGen review app theme, matching the "Review · two-pane" mockup. Light and dark modes
+# keep the appearance toggle available. The Inter font is served from the app itself
+# (synthgen/app/static/fonts, SIL Open Font License): the app loads nothing from external
+# services.
+
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "Inter"
+url = "app/static/fonts/inter-latin-wght-normal.woff2"
+weight = "100 900"
+
+[theme]
+font = "Inter"
+paddingTop = "0.5rem"      # header close to the top of the window
+showWidgetBorder = true
+showSidebarBorder = true
+baseRadius = "8px"
+buttonRadius = "8px"
+baseFontSize = 15
+headingFontWeights = [650, 600, 600, 600, 600, 600]
+headingFontSizes = ["30px", "26px", "20px", "17px", "15px", "14px"]
+codeFontSize = "0.85rem"
+linkUnderline = false
+
+[theme.light]
+primaryColor = "#2563EB"            # 5.2:1 against white button text
+backgroundColor = "#EEF2F8"            # soft blue-grey page; sections sit on white cards (ui.card)
+secondaryBackgroundColor = "#F8FAFC"   # near-white widget fills, as in the mockup
+codeBackgroundColor = "#F1F3F6"
+codeTextColor = "#1F2937"
+textColor = "#111827"
+linkColor = "#1D4ED8"
+borderColor = "#E3E6EB"
+grayColor = "#6B7280"
+blueColor = "#2563EB"
+greenColor = "#15803D"
+orangeColor = "#C2410C"
+redColor = "#B91C1C"
+yellowColor = "#A16207"
+# Badge colours from the mockup (Accepted, Needs review, step pills)
+greenBackgroundColor = "#DCFCE7"
+greenTextColor = "#14532D"
+orangeBackgroundColor = "#FFEDD5"
+orangeTextColor = "#9A3412"
+blueBackgroundColor = "#DBEAFE"
+blueTextColor = "#1E3A8A"
+grayBackgroundColor = "#FFFFFF"
+grayTextColor = "#374151"
+dataframeBorderColor = "#E3E6EB"
+dataframeHeaderBackgroundColor = "#F1F4F9"
+
+[theme.dark]
+# The dark choice is a grey theme with black text: grey page, lighter grey cards (ui.styles).
+# Accent colours are the darker shades so they stay readable on grey.
+primaryColor = "#1D4ED8"               # 6.7:1 against white button text
+backgroundColor = "#C4CAD3"            # page; black text 12.7:1
+secondaryBackgroundColor = "#EEF0F3"   # widget fills inside the grey cards
+codeBackgroundColor = "#D3D8DF"
+codeTextColor = "#000000"
+textColor = "#000000"
+linkColor = "#1E3A8A"
+borderColor = "#9AA3AF"
+grayColor = "#374151"                  # secondary text; 6.3:1 on the page
+blueColor = "#1E3A8A"               # 6.3:1 on the page
+greenColor = "#166534"
+orangeColor = "#9A3412"
+redColor = "#991B1B"
+yellowColor = "#854D0E"
+greenBackgroundColor = "#DCFCE7"
+greenTextColor = "#14532D"
+orangeBackgroundColor = "#FFEDD5"
+orangeTextColor = "#9A3412"
+blueBackgroundColor = "#DBEAFE"
+blueTextColor = "#1E3A8A"
+grayBackgroundColor = "#E2E6EB"
+grayTextColor = "#000000"
+dataframeBorderColor = "#9AA3AF"
+dataframeHeaderBackgroundColor = "#D3D8DF"
+dataframeHeaderTextColor = "#000000"
+
+[theme.light.sidebar]
+backgroundColor = "#F6F7F9"
+secondaryBackgroundColor = "#EDEFF3"
+textColor = "#111827"
+borderColor = "#E3E6EB"
+
+[theme.dark.sidebar]
+backgroundColor = "#B4BBC6"
+secondaryBackgroundColor = "#E2E6EB"
+textColor = "#000000"
+borderColor = "#9AA3AF"

@@ -1,0 +1,5 @@
+application_ref,date_received,hearing_date,hearing_type,applicant_role,interp_req,fee_paid
+FA15N69926,2025-10-06,2026-02-03,Application,Respondent,false,80.00
+FA99D10425,2024-12-26,2025-11-02,Fast track trial,Claimant,false,35.00
+FA75S21000,2024-12-21,2025-07-12,Final hearing,Respondent,false,50.00
+FA71V92361,2025-02-26,,,Applicant,false,205.00

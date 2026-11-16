@@ -1,0 +1,6 @@
+caseRef,partyId,partyType,hasSolicitor,needsInterpreter
+K60BU742,P-93537,Applicant,false,true
+K00KV030,P-37999,Respondent,false,false
+K69RS921,P-34926,Defendant,true,false
+K21WP426,P-86774,Applicant,true,false
+K59XW147,P-89558,Defendant,true,false

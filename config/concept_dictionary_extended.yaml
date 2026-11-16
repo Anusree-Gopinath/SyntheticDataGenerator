@@ -1,0 +1,377 @@
+# Extended concept dictionary covering every labelled concept in the test schemas.
+concepts:
+- concept: case_reference
+  description: Unique reference number for a case
+  type: string
+  synonyms:
+  - case_number
+  - case_no
+  - case_ref
+  - claim_number
+  - claim_ref
+  typical_rules:
+  - type: uniqueness
+    description: Case references are unique
+    expr: unique(case_reference)
+- concept: claim_type
+  description: Type of civil claim
+  type: category
+  synonyms:
+  - claim_category
+  - case_type
+  allowed_values:
+  - Money claim
+  - Possession claim
+  - Personal injury
+  - Housing disrepair
+- concept: claim_amount
+  description: Amount of money claimed in pounds
+  type: decimal
+  synonyms:
+  - claim_value
+  - amount_claimed
+  - claim_amt
+- concept: track
+  description: Track the case is allocated to
+  type: category
+  synonyms:
+  - track_allocation
+  - allocated_track
+  - trk_alloc
+  allowed_values:
+  - Small claims
+  - Fast track
+  - Intermediate track
+  - Multi-track
+- concept: issue_date
+  description: Date the claim was issued
+  type: date
+  synonyms:
+  - date_issued
+  - issued_date
+  - iss_dt
+- concept: received_date
+  description: Date the case or application was received
+  type: date
+  synonyms:
+  - date_received
+  - rcvd_dt
+  - received_on
+- concept: hearing_date
+  description: Date a hearing is listed to take place
+  type: date
+  synonyms:
+  - hrg_dt
+  - hearing_dt
+  - listed_date
+  typical_rules:
+  - type: temporal_order
+    description: Hearing date is after the issue date
+    expr: hearing_date > issue_date
+    when: hearing_date is not null
+- concept: time_of_hearing
+  description: Time of hearing (24-hour clock, HH:MM)
+  type: string
+  synonyms:
+  - time_of_hearing
+  - hearing_time
+  - hearing_start_time
+  - listed_time
+  pattern: ([01]\d|2[0-3]):[0-5]\d
+- concept: hearing_type
+  description: Type of hearing
+  type: category
+  synonyms:
+  - hrg_type
+  - hearing_kind
+  allowed_values:
+  - Directions
+  - Small claims hearing
+  - Fast track trial
+  - Application
+  - Final hearing
+  - Case management
+- concept: hearing_duration_minutes
+  description: Estimated or actual hearing length in minutes
+  type: integer
+  synonyms:
+  - time_estimate
+  - duration_mins
+  - hrg_len
+- concept: court_name
+  description: Name of the court or hearing centre
+  type: category
+  synonyms:
+  - court
+  - hearing_centre
+  - venue
+- concept: courtroom
+  description: Courtroom or hearing room identifier
+  type: string
+  synonyms:
+  - room
+  - court_room
+  - rm_no
+- concept: judge_identifier
+  description: Pseudonymous identifier for the judge or panel member
+  type: string
+  synonyms:
+  - judge_id
+  - jdg_cd
+  - panel_member
+- concept: case_status
+  description: Current status of the case
+  type: category
+  synonyms:
+  - status
+  - case_state
+  - stage
+  allowed_values:
+  - Issued
+  - Defended
+  - Listed
+  - Heard
+  - Settled
+  - Judgment
+  - Closed
+- concept: outcome
+  description: Outcome of a hearing or case
+  type: category
+  synonyms:
+  - result
+  - disposal
+  - decision
+  allowed_values:
+  - Granted
+  - Dismissed
+  - Adjourned
+  - Withdrawn
+  - Struck out
+  - Settled
+- concept: outcome_date
+  description: Date the outcome was recorded
+  type: date
+  synonyms:
+  - decision_date
+  - disposal_date
+- concept: judgment_date
+  description: Date judgment was entered
+  type: date
+  synonyms:
+  - jdgmt_dt
+  - date_of_judgment
+- concept: judgment_amount
+  description: Amount of the judgment in pounds
+  type: decimal
+  synonyms:
+  - judgment_value
+  - jdgmt_amt
+- concept: defended_flag
+  description: Whether the claim is defended
+  type: boolean
+  synonyms:
+  - is_defended
+  - defended
+  - dfnd_flg
+- concept: claimant_represented
+  description: Whether the claimant has a legal representative
+  type: boolean
+  synonyms:
+  - clmt_rep
+  - claimant_has_solicitor
+- concept: defendant_represented
+  description: Whether the defendant has a legal representative
+  type: boolean
+  synonyms:
+  - def_rep
+  - defendant_has_solicitor
+- concept: interpreter_required
+  description: Whether an interpreter is needed
+  type: boolean
+  synonyms:
+  - interp_req
+  - needs_interpreter
+- concept: party_identifier
+  description: Pseudonymous identifier for a party
+  type: string
+  synonyms:
+  - party_id
+  - pty_ref
+- concept: party_role
+  description: Role of a party in the case
+  type: category
+  synonyms:
+  - role
+  - party_type
+  allowed_values:
+  - Claimant
+  - Defendant
+  - Applicant
+  - Respondent
+  - Appellant
+- concept: fee_amount
+  description: Court or tribunal fee paid in pounds
+  type: decimal
+  synonyms:
+  - fee
+  - fee_paid
+  - fee_amt
+- concept: payment_date
+  description: Date a fee or payment was made
+  type: date
+  synonyms:
+  - paid_on
+  - pymt_dt
+- concept: payment_reference
+  description: Reference for a fee or payment
+  type: string
+  synonyms:
+  - payment_reference
+  - payment_ref
+  - pay_ref
+  - fee_payment_reference
+  typical_rules:
+  - type: uniqueness
+    description: Payment references are unique
+    expr: unique(payment_reference)
+- concept: enforcement_type
+  description: Type of enforcement action
+  type: category
+  synonyms:
+  - enf_type
+  - enforcement_method
+  allowed_values:
+  - Warrant of control
+  - Attachment of earnings
+  - Charging order
+  - Third party debt order
+- concept: warrant_issue_date
+  description: Date an enforcement warrant was issued
+  type: date
+  synonyms:
+  - warrant_dt
+  - wrnt_iss_dt
+- concept: appeal_flag
+  description: Whether an appeal has been lodged
+  type: boolean
+  synonyms:
+  - appealed
+  - appeal_lodged
+- concept: jurisdiction
+  description: Tribunal jurisdiction or case area
+  type: category
+  synonyms:
+  - jurisdiction_code
+  - juris
+  allowed_values:
+  - Unfair dismissal
+  - Wages
+  - Discrimination
+  - Benefits appeal
+  - Immigration appeal
+- concept: region
+  description: Administrative region
+  type: category
+  synonyms:
+  - area
+  - rgn
+  allowed_values:
+  - Wales
+  - North West
+  - North East
+  - Midlands
+  - London
+  - South East
+  - South West
+  - Yorkshire
+- concept: offence_category
+  description: Category of offence
+  type: category
+  synonyms:
+  - offence_type
+  - off_cat
+  - offence_details
+  allowed_values:
+  - Theft
+  - Fraud
+  - Public order
+  - Motoring
+  - Criminal damage
+- concept: prosecuting_authority
+  description: Authority bringing the prosecution
+  type: category
+  synonyms:
+  - prosecuting_authority
+  - prosecutor
+  - prosecuting_agency
+  - prosecution_authority
+- concept: offence_location
+  description: Place where the offence happened
+  type: string
+  synonyms:
+  - offence_location
+  - offence_place
+  - location_of_offence
+  - place_of_offence
+- concept: plea
+  description: Plea entered
+  type: category
+  synonyms:
+  - plea_entered
+  allowed_values:
+  - Guilty
+  - Not guilty
+  - No plea
+- concept: adjournment_reason
+  description: Reason a hearing was adjourned
+  type: category
+  synonyms:
+  - adj_reason
+  - adjourn_rsn
+  allowed_values:
+  - Party not ready
+  - Witness absent
+  - No judge available
+  - Overrun
+  - Interpreter unavailable
+- concept: adjournment_count
+  description: Number of previous adjournments
+  type: integer
+  synonyms:
+  - adj_count
+  - num_adjournments
+- concept: document_count
+  description: Number of documents filed
+  type: integer
+  synonyms:
+  - doc_count
+  - num_docs
+- concept: filing_channel
+  description: How the case was filed
+  type: category
+  synonyms:
+  - channel
+  - submission_route
+  allowed_values:
+  - Online
+  - Paper
+  - Bulk
+- concept: created_by
+  description: Pseudonymous identifier of the user who created the record
+  type: string
+  synonyms:
+  - created_user
+  - usr_cd
+- concept: notes
+  description: Free-text case notes
+  type: text
+  synonyms:
+  - comments
+  - case_notes
+  - remarks
+- concept: transaction
+  description: transaction notes
+  type: string
+  synonyms:
+  - txn_batch
+  - transaction_notes

@@ -1,0 +1,25 @@
+# The full experiment plan. Fix it before any results are seen.
+name: main-comparison
+# An approved profile, pinned to one version so later edits can't change the plan. It is a
+# copy of data/profiles/s01-civil-money-claims/v7.yaml kept under config/ (data/ is not
+# committed), so the plan runs from a fresh clone.
+profile: config/profiles/s01-civil-money-claims-v7.yaml
+rows_per_run: 10000
+seeds: [1, 2, 3, 4, 5]
+
+scenarios:
+  - id: 1
+    description: Schema, approved rules and calibration statistics only
+  - id: 2
+    description: Also a small fictional sample from the reference world
+    sample_rows: 200
+
+approaches:
+  - name: knowledge_based
+  - name: gaussian_copula
+  - name: ctgan            # Scenario 2 only
+    scenarios: [2]
+  - name: tvae             # Scenario 2 only
+    scenarios: [2]
+  - name: llm
+    model: llama3.1:8b

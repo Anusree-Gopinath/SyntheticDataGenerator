@@ -1,0 +1,3 @@
+case_number,claim_type,claim_value,issue_date,hearing_date,court,status
+K00CF123,Money claim,1250.00,2025-03-14,2025-07-02,Cardiff,Listed
+K00MA456,Money claim,8900.50,2025-04-02,,Manchester,Defended

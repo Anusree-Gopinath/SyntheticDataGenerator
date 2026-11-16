@@ -1,0 +1,5 @@
+claim_number,claim_type,issue_date,hearing_date,outcome,court,arrears_band
+K02HJ204,Money claim,2025-05-18,2025-09-14,Granted,Manchester,A
+K09XX055,Money claim,2025-01-31,2025-05-16,Granted,Liverpool,C
+K31SV562,Possession claim,2024-10-31,2025-04-14,Settled,Manchester,A
+K40RU444,Housing disrepair,2025-08-01,,,Liverpool,C

@@ -1,0 +1,5 @@
+# Local models only. Pin exact tags and record versions in each run record.
+ollama_url: http://localhost:11434
+models:
+  small: llama3.1:8b
+embeddings: sentence-transformers/all-MiniLM-L6-v2

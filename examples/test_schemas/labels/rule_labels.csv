@@ -1,0 +1,61 @@
+schema_id,rule_id,type,description,expr,when,columns
+S01,S01-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_number
+S01,S01-R2,temporal_order,Hearing date is after the issue date,hearing_date > issue_date,hearing_date is not null,hearing_date;issue_date
+S01,S01-R3,conditional_presence,Listed cases have a hearing date,hearing_date is not null,case_status == 'Listed',status;hearing_date
+S01,S01-R4,range,Claim amount is positive,claim_amount > 0,,claim_value
+S02,S02-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_ref
+S02,S02-R2,range,Hearing length is positive,hearing_duration_minutes > 0,hearing_duration_minutes is not null,hrg_len
+S03,S03-R1,uniqueness,Each case reference appears only once,unique(case_reference),,CLM_NO
+S03,S03-R2,conditional_value,"Small claims stay within the £10,000 small claims limit",claim_amount <= 10000,track == 'Small claims',TRK;CLM_AMT
+S03,S03-R3,range,Claim amount is positive,claim_amount > 0,,CLM_AMT
+S04,S04-R1,uniqueness,Each case reference appears only once,unique(case_reference),,caseNumber
+S04,S04-R2,range,Claim amount is positive,claim_amount > 0,,amountClaimed
+S05,S05-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Case Reference
+S05,S05-R2,temporal_order,Outcome is recorded on or after the hearing date,outcome_date >= hearing_date,outcome_date is not null,Decision Date;Hearing Date
+S06,S06-R1,uniqueness,Each case reference appears only once,unique(case_reference),,claim_ref
+S06,S06-R2,temporal_order,Judgment is on or after the issue date,judgment_date >= issue_date,judgment_date is not null,date_of_judgment;date_issued
+S07,S07-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_no
+S07,S07-R2,temporal_order,Warrant is issued after judgment,warrant_issue_date > judgment_date,warrant_issue_date is not null,wrnt_iss_dt;jdgmt_dt
+S08,S08-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_number
+S08,S08-R2,temporal_order,Fee is paid on or before the issue date,payment_date <= issue_date,,paid_on;issued_date
+S09,S09-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_ref
+S09,S09-R2,temporal_order,Hearing date is after the date received,hearing_date > received_date,hearing_date is not null,hearing_date;date_received
+S10,S10-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Appeal Reference
+S10,S10-R2,temporal_order,Hearing date is after the date received,hearing_date > received_date,hearing_date is not null,Hearing Date;Received On
+S11,S11-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_number
+S11,S11-R2,range,Adjournment count is not negative,adjournment_count >= 0,,adj_count
+S12,S12-R1,range,Adjournment count is not negative,adjournment_count >= 0,,adj_count
+S12,S12-R2,conditional_presence,Adjourned cases record a reason,adjournment_reason is not null,adjournment_count > 0,adj_reason;adj_count
+S14,S14-R1,uniqueness,Each case reference appears only once,unique(case_reference),,claim_number
+S14,S14-R2,temporal_order,Hearing date is after the issue date,hearing_date > issue_date,hearing_date is not null,hearing_date;issue_date
+S16,S16-R1,uniqueness,Each case reference appears only once,unique(case_reference),,ref
+S16,S16-R2,temporal_order,Hearing date is after the issue date,hearing_date > issue_date,hearing_date is not null,dt2;dt1
+S16,S16-R3,range,Hearing length is positive,hearing_duration_minutes > 0,hearing_duration_minutes is not null,mins
+S17,S17-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Case No
+S17,S17-R2,conditional_presence,Listed cases have a hearing date,hearing_date is not null,case_status == 'Listed',Stage;Next Hearing
+S17,S17-R3,conditional_value,"Small claims stay within the £10,000 small claims limit",claim_amount <= 10000,track == 'Small claims',Allocated Track;Claim Value
+S17,S17-R4,range,Claim amount is positive,claim_amount > 0,,Claim Value
+S18,S18-R1,uniqueness,Each case reference appears only once,unique(case_reference),,claimRef
+S18,S18-R2,range,Claim amount is positive,claim_amount > 0,,claimAmt
+S19,S19-R1,uniqueness,Each case reference appears only once,unique(case_reference),,CLAIM_NO
+S19,S19-R2,range,Claim amount is positive,claim_amount > 0,,CLAIM_AMT
+S20,S20-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_ref
+S20,S20-R2,range,Hearing length is positive,hearing_duration_minutes > 0,hearing_duration_minutes is not null,time_estimate
+S21,S21-R1,uniqueness,Each case reference appears only once,unique(case_reference),,case_number
+S22,S22-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Case Number
+S22,S22-R2,range,Adjournment count is not negative,adjournment_count >= 0,,Num Adjournments
+S23,S23-R1,range,Hearing length is positive,hearing_duration_minutes > 0,hearing_duration_minutes is not null,hrg_len
+S24,S24-R1,uniqueness,Each case reference appears only once,unique(case_reference),,FLD01
+S24,S24-R2,range,Claim amount is positive,claim_amount > 0,,FLD02
+S25,S25-R1,uniqueness,Each case reference appears only once,unique(case_reference),,caseNumber
+S25,S25-R2,range,Claim amount is positive,claim_amount > 0,,claimValue
+S26,S26-R1,uniqueness,Each case reference appears only once,unique(case_reference),,application_ref
+S26,S26-R2,temporal_order,Hearing date is after the date received,hearing_date > received_date,hearing_date is not null,hearing_date;date_received
+S28,S28-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Claim Number
+S28,S28-R2,temporal_order,Warrant is issued after judgment,warrant_issue_date > judgment_date,warrant_issue_date is not null,Warrant Date;Judgment Date
+S30,S30-R1,uniqueness,Each case reference appears only once,unique(case_reference),,Case_No
+S30,S30-R2,temporal_order,Hearing date is after the issue date,hearing_date > issue_date,hearing_date is not null,hrg-dt;ISSUE DATE
+S30,S30-R3,conditional_presence,Listed cases have a hearing date,hearing_date is not null,case_status == 'Listed',Status;hrg-dt
+S30,S30-R4,conditional_value,"Small claims stay within the £10,000 small claims limit",claim_amount <= 10000,track == 'Small claims',Track Allocation;claimAmt
+S30,S30-R5,range,Claim amount is positive,claim_amount > 0,,claimAmt
+S30,S30-R6,range,Adjournment count is not negative,adjournment_count >= 0,,adj count

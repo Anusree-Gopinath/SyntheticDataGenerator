@@ -1,0 +1,5 @@
+caseNumber,claimType,amountClaimed,dateIssued,isDefended,claimantHasSolicitor,defendantHasSolicitor
+K09TM025,Money claim,545.96,2025-07-05,true,true,false
+K19GJ593,Money claim,1824.13,2024-06-20,true,false,true
+K03EB106,Housing disrepair,5561.85,2025-06-29,false,true,true
+K48ZK810,Money claim,338.17,2025-05-21,true,false,false

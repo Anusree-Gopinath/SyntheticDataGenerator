@@ -1,0 +1,99 @@
+# Reference world simulator settings (version 2).
+# Every value is either SOURCED (from official statistics or the Civil Procedure Rules) or an
+# ASSUMPTION. Reasons and sources for each are in docs/reference-world-assumptions.md.
+# Generators never read this file: they only see the calibration statistics derived from it.
+
+version: 2
+seed: 20261108
+n_cases: 2000                       # small for development; set 200000 for final experiments
+snapshot_date: "2026-06-30"          # the "today" of the reference world
+issue_dates: {start: "2024-01-01", end: "2026-06-30"}
+
+# Claim mix. SOURCED: Civil Justice Statistics Quarterly, April to June 2026 (shares rounded).
+claim_types:
+  Money claim:      {share: 0.870, value_median: 420,  value_sigma: 1.2,
+                     high_value_share: 0.09, high_value_median: 13000, high_value_sigma: 0.45}
+  Personal injury:  {share: 0.020, value_median: 3500, value_sigma: 1.0}
+  Other damages:    {share: 0.025, value_median: 6000, value_sigma: 1.2}
+  Possession claim: {share: 0.050, value_median: 3000, value_sigma: 0.8}   # value = arrears
+  Other non-money:  {share: 0.035}                                          # no claim value
+
+# Track limits. SOURCED: Civil Procedure Rules, rule 26.9.
+tracks:
+  small_claims_limit: 10000
+  small_claims_limit_personal_injury: 1500
+  fast_track_limit: 25000
+  intermediate_track_limit: 100000
+  complex_to_multi_share: 0.70        # ASSUMPTION: share of claims over £25k allocated to multi-track rather than intermediate track
+
+# Defence. Target 14% of claims defended (SOURCED). The value effect is an ASSUMPTION (hidden).
+defence:
+  intercept: -6.75
+  log_value_effect: 0.70              # higher-value claims are more likely to be defended
+  possession_rate: 0.20               # ASSUMPTION
+
+# Legal representation, defended claims. SOURCED: both 37%, claimant only 41%, defendant only 3%.
+representation_defended: {both: 0.37, claimant_only: 0.41, defendant_only: 0.03, neither: 0.19}
+representation_undefended: {claimant: 0.60, defendant: 0.02}   # ASSUMPTION
+interpreter_rate: 0.04                                          # ASSUMPTION
+
+# Trials. Target about 15% of defended claims reaching trial (SOURCED ratio: 12,000 / 82,000).
+trial:
+  intercept: -1.70
+  neither_represented_effect: 0.45    # ASSUMPTION (hidden): litigants in person settle less
+  both_represented_effect: -0.35      # ASSUMPTION (hidden)
+  claimant_win_rate: 0.62             # ASSUMPTION
+
+# Time from issue to trial in days. Base medians are tuned so the OBSERVED medians match the SOURCED
+# figures (41.0 weeks small claims, 55.9 weeks other tracks) after court, representation and
+# interpreter effects are applied.
+time_to_trial:
+  small_claims_median_days: 280
+  other_tracks_median_days: 382
+  sigma: 0.30                         # ASSUMPTION
+  court_factor_sigma: 0.12            # ASSUMPTION (hidden): some courts are slower
+  neither_represented_factor: 1.10    # ASSUMPTION (hidden)
+  interpreter_factor: 1.08            # ASSUMPTION (hidden)
+  high_value_log_effect: 0.04         # ASSUMPTION (hidden): per log-unit above £25k
+
+possession:
+  hearing_median_days: 70             # ASSUMPTION
+  order_rate: 0.85                    # ASSUMPTION
+  warrant_rate: 0.30                  # ASSUMPTION
+
+# Undefended claims. Default judgments are 94% of judgments (SOURCED); admissions 4% (SOURCED).
+undefended:
+  default_judgment_rate: 0.72         # ASSUMPTION, tuned so default judgments are about 94% of judgments
+  admission_rate: 0.04
+  days_to_judgment: {min: 19, max: 90}  # ASSUMPTION: after the response period
+  withdrawn_rate: 0.10                # ASSUMPTION
+
+# Settlement timing for defended claims that do not reach trial. ASSUMPTION.
+settlement_days: {min: 45, max: 420}
+
+# Enforcement. Warrants about 20% of judgments (SOURCED ratio: 73,000 / 368,000).
+warrant:
+  intercept: -1.55
+  low_value_effect: 0.55              # ASSUMPTION (hidden): claims under £1,000 enforced more
+  defendant_represented_effect: -0.8  # ASSUMPTION (hidden)
+  days_after_judgment: {min: 30, max: 200}
+
+# Courts: public county court hearing centre names, each with a region.
+courts:
+  Cardiff: Wales
+  Swansea: Wales
+  Manchester: North West
+  Liverpool: North West
+  Newcastle: North East
+  Leeds: Yorkshire
+  Sheffield: Yorkshire
+  Birmingham: Midlands
+  Nottingham: Midlands
+  Bristol: South West
+  Brighton: South East
+  Central London: London
+
+# How the reference dataset is split into stores (see synthgen/reference_world/stores.py).
+stores:
+  scenario2_sample_rows: 200
+  candidate_pool_rows: 400

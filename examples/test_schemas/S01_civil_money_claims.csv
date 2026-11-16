@@ -1,0 +1,6 @@
+case_number,claim_type,claim_value,issue_date,hearing_date,court,status
+K41RH916,Money claim,1806.64,2025-11-17,,Nottingham,Issued
+K12RR845,Possession claim,683.32,2025-01-30,,Manchester,Closed
+K19KS339,Housing disrepair,4284.61,2025-04-16,,Leeds,Issued
+K95YH236,Money claim,3570.45,2024-03-16,,Cardiff,Issued
+K67NM509,Money claim,1430.87,2025-06-19,2026-03-10,Manchester,Listed

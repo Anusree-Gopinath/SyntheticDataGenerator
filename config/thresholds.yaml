@@ -1,0 +1,9 @@
+# Agree these with your manager or tutor and record them BEFORE any results are seen.
+column_confidence:
+  value: 0.70           # columns below this are flagged for review
+  agreed_by: TBC
+  agreed_on: TBC
+privacy_distance:
+  percentile: 5         # 5th percentile of Gower distances between different sample rows
+  agreed_by: TBC
+  agreed_on: TBC

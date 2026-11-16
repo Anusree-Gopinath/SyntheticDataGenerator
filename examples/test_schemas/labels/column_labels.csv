@@ -1,0 +1,199 @@
+schema_id,column,concept,meaning,in_dictionary,type,format,nullable,unique
+S01,case_number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S01,claim_type,claim_type,Type of civil claim,yes,category,,no,no
+S01,claim_value,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S01,issue_date,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S01,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S01,court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S01,status,case_status,Current status of the case,yes,category,,no,no
+S02,case_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S02,hrg_dt,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S02,hrg_type,hearing_type,Type of hearing,yes,category,,yes,no
+S02,hrg_len,hearing_duration_minutes,Estimated or actual hearing length in minutes,yes,integer,,yes,no
+S02,rm_no,courtroom,Courtroom or hearing room identifier,yes,string,,yes,no
+S02,jdg_cd,judge_identifier,Pseudonymous identifier for the judge or panel member,yes,string,,yes,no
+S02,trk_alloc,track,Track the case is allocated to,yes,category,,no,no
+S03,CLM_NO,case_reference,Unique reference number for a case,yes,string,,no,yes
+S03,CLM_AMT,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S03,ISS_DT,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S03,TRK,track,Track the case is allocated to,yes,category,,no,no
+S03,DFND_FLG,defended_flag,Whether the claim is defended,yes,boolean,Y/N,no,no
+S03,CRT_CD,court_name,Name of the court or hearing centre,yes,category,,no,no
+S03,STS,case_status,Current status of the case,yes,category,,no,no
+S04,caseNumber,case_reference,Unique reference number for a case,yes,string,,no,yes
+S04,claimType,claim_type,Type of civil claim,yes,category,,no,no
+S04,amountClaimed,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S04,dateIssued,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S04,isDefended,defended_flag,Whether the claim is defended,yes,boolean,true/false,no,no
+S04,claimantHasSolicitor,claimant_represented,Whether the claimant has a legal representative,yes,boolean,true/false,no,no
+S04,defendantHasSolicitor,defendant_represented,Whether the defendant has a legal representative,yes,boolean,true/false,no,no
+S05,Case Reference,case_reference,Unique reference number for a case,yes,string,,no,yes
+S05,Hearing Date,hearing_date,Date a hearing is listed to take place,yes,date,%d/%m/%Y,yes,no
+S05,Hearing Type,hearing_type,Type of hearing,yes,category,,yes,no
+S05,Result,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S05,Decision Date,outcome_date,Date the outcome was recorded,yes,date,%d/%m/%Y,yes,no
+S05,Judge ID,judge_identifier,Pseudonymous identifier for the judge or panel member,yes,string,,yes,no
+S06,claim_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S06,date_issued,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S06,date_of_judgment,judgment_date,Date judgment was entered,yes,date,%Y-%m-%d,yes,no
+S06,judgment_value,judgment_amount,Amount of the judgment in pounds,yes,decimal,2 dp,yes,no
+S06,appeal_lodged,appeal_flag,Whether an appeal has been lodged,yes,boolean,true/false,no,no
+S06,court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S07,case_no,case_reference,Unique reference number for a case,yes,string,,no,yes
+S07,jdgmt_dt,judgment_date,Date judgment was entered,yes,date,%Y-%m-%d,yes,no
+S07,jdgmt_amt,judgment_amount,Amount of the judgment in pounds,yes,decimal,2 dp,yes,no
+S07,enf_type,enforcement_type,Type of enforcement action,yes,category,,no,no
+S07,wrnt_iss_dt,warrant_issue_date,Date an enforcement warrant was issued,yes,date,%Y-%m-%d,yes,no
+S07,rgn,region,Administrative region,yes,category,,no,no
+S08,case_number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S08,fee_paid,fee_amount,Court or tribunal fee paid in pounds,yes,decimal,2 dp,no,no
+S08,paid_on,payment_date,Date a fee or payment was made,yes,date,%Y-%m-%d,no,no
+S08,submission_route,filing_channel,How the case was filed,yes,category,,no,no
+S08,issued_date,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S08,txn_batch,,Payment transaction batch identifier (not in dictionary: should be flagged for review),no,string,,no,no
+S09,case_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S09,jurisdiction,jurisdiction,Tribunal jurisdiction or case area,yes,category,,no,no
+S09,date_received,received_date,Date the case or application was received,yes,date,%Y-%m-%d,no,no
+S09,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S09,outcome,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S09,region,region,Administrative region,yes,category,,no,no
+S09,appeal_lodged,appeal_flag,Whether an appeal has been lodged,yes,boolean,true/false,no,no
+S10,Appeal Reference,case_reference,Unique reference number for a case,yes,string,,no,yes
+S10,Received On,received_date,Date the case or application was received,yes,date,%d/%m/%Y,no,no
+S10,Jurisdiction,jurisdiction,Tribunal jurisdiction or case area,yes,category,,no,no
+S10,Hearing Date,hearing_date,Date a hearing is listed to take place,yes,date,%d/%m/%Y,yes,no
+S10,Decision,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S10,Interpreter Required,interpreter_required,Whether an interpreter is needed,yes,boolean,Y/N,no,no
+S10,Panel Member,judge_identifier,Pseudonymous identifier for the judge or panel member,yes,string,,yes,no
+S11,case_number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S11,offence_type,offence_category,Category of offence,yes,category,,no,no
+S11,plea,plea,Plea entered,yes,category,,no,no
+S11,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S11,courtroom,courtroom,Courtroom or hearing room identifier,yes,string,,yes,no
+S11,adj_count,adjournment_count,Number of previous adjournments,yes,integer,,no,no
+S11,interp_req,interpreter_required,Whether an interpreter is needed,yes,boolean,Y/N,no,no
+S12,case_ref,case_reference,Unique reference number for a case,yes,string,,no,no
+S12,hrg_dt,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S12,adj_reason,adjournment_reason,Reason a hearing was adjourned,yes,category,,yes,no
+S12,adj_count,adjournment_count,Number of previous adjournments,yes,integer,,no,no
+S12,venue,court_name,Name of the court or hearing centre,yes,category,,no,no
+S12,usr_cd,created_by,Pseudonymous identifier of the user who created the record,yes,string,,no,no
+S13,caseRef,case_reference,Unique reference number for a case,yes,string,,no,no
+S13,partyId,party_identifier,Pseudonymous identifier for a party,yes,string,,no,no
+S13,partyType,party_role,Role of a party in the case,yes,category,,no,no
+S13,hasSolicitor,claimant_represented,Whether the claimant has a legal representative,yes,boolean,true/false,no,no
+S13,needsInterpreter,interpreter_required,Whether an interpreter is needed,yes,boolean,true/false,no,no
+S14,claim_number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S14,claim_type,claim_type,Type of civil claim,yes,category,,no,no
+S14,issue_date,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S14,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S14,outcome,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S14,court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S14,arrears_band,,Rent arrears band (A to C) (not in dictionary: should be flagged for review),no,category,,no,no
+S15,case_no,case_reference,Unique reference number for a case,yes,string,,no,no
+S15,doc_count,document_count,Number of documents filed,yes,integer,,no,no
+S15,channel,filing_channel,How the case was filed,yes,category,,no,no
+S15,date_received,received_date,Date the case or application was received,yes,date,%Y-%m-%d,no,no
+S15,created_user,created_by,Pseudonymous identifier of the user who created the record,yes,string,,no,no
+S15,remarks,notes,Free-text case notes,yes,text,,yes,no
+S16,ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S16,dt1,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S16,dt2,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S16,t,hearing_type,Type of hearing,yes,category,,yes,no
+S16,mins,hearing_duration_minutes,Estimated or actual hearing length in minutes,yes,integer,,yes,no
+S16,loc,court_name,Name of the court or hearing centre,yes,category,,no,no
+S16,flg,defended_flag,Whether the claim is defended,yes,boolean,1/0,no,no
+S17,Case No,case_reference,Unique reference number for a case,yes,string,,no,yes
+S17,Case Type,claim_type,Type of civil claim,yes,category,,no,no
+S17,Allocated Track,track,Track the case is allocated to,yes,category,,no,no
+S17,Claim Value,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S17,Stage,case_status,Current status of the case,yes,category,,no,no
+S17,Next Hearing,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S17,Comments,notes,Free-text case notes,yes,text,,yes,no
+S18,claimRef,case_reference,Unique reference number for a case,yes,string,,no,yes
+S18,claimCategory,claim_type,Type of civil claim,yes,category,,no,no
+S18,claimAmt,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S18,submissionRoute,filing_channel,How the case was filed,yes,category,,no,no
+S18,feeAmt,fee_amount,Court or tribunal fee paid in pounds,yes,decimal,2 dp,no,no
+S18,dateIssued,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S19,CLAIM_NO,case_reference,Unique reference number for a case,yes,string,,no,yes
+S19,CLAIM_AMT,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S19,ISS_DT,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S19,CHANNEL,filing_channel,How the case was filed,yes,category,,no,no
+S19,BATCH_ID,,Bulk upload batch identifier (not in dictionary: should be flagged for review),no,string,,no,no
+S19,DFND_FLG,defended_flag,Whether the claim is defended,yes,boolean,Y/N,no,no
+S20,case_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S20,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%d/%m/%Y,yes,no
+S20,hearing_type,hearing_type,Type of hearing,yes,category,,yes,no
+S20,time_estimate,hearing_duration_minutes,Estimated or actual hearing length in minutes,yes,integer,,yes,no
+S20,panel_member,judge_identifier,Pseudonymous identifier for the judge or panel member,yes,string,,yes,no
+S20,room,courtroom,Courtroom or hearing room identifier,yes,string,,yes,no
+S20,juris,jurisdiction,Tribunal jurisdiction or case area,yes,category,,no,no
+S21,case_number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S21,date_of_judgment,judgment_date,Date judgment was entered,yes,date,%Y-%m-%d,yes,no
+S21,appealed,appeal_flag,Whether an appeal has been lodged,yes,boolean,true/false,no,no
+S21,decision,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S21,decision_date,outcome_date,Date the outcome was recorded,yes,date,%Y-%m-%d,yes,no
+S21,court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S22,Case Number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S22,Offence Category,offence_category,Category of offence,yes,category,,no,no
+S22,Plea Entered,plea,Plea entered,yes,category,,no,no
+S22,Trial Date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S22,Outcome,outcome,Outcome of a hearing or case,yes,category,,yes,no
+S22,Num Adjournments,adjournment_count,Number of previous adjournments,yes,integer,,no,no
+S22,Region,region,Administrative region,yes,category,,no,no
+S23,case_ref,case_reference,Unique reference number for a case,yes,string,,no,no
+S23,hrg_dt,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S23,interp_req,interpreter_required,Whether an interpreter is needed,yes,boolean,Y/N,no,no
+S23,lang_cd,,Coded interpreter language (not in dictionary: should be flagged for review),no,category,,no,no
+S23,hrg_len,hearing_duration_minutes,Estimated or actual hearing length in minutes,yes,integer,,yes,no
+S23,venue,court_name,Name of the court or hearing centre,yes,category,,no,no
+S24,FLD01,case_reference,Unique reference number for a case,yes,string,,no,yes
+S24,FLD02,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S24,FLD03,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S24,FLD04,case_status,Current status of the case,yes,category,,no,no
+S24,FLD05,court_name,Name of the court or hearing centre,yes,category,,no,no
+S24,XREF_CD,,Legacy cross-reference code (not in dictionary: should be flagged for review),no,string,,no,no
+S25,caseNumber,case_reference,Unique reference number for a case,yes,string,,no,yes
+S25,claimValue,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S25,status,case_status,Current status of the case,yes,category,,no,no
+S25,dateIssued,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S25,settledOn,outcome_date,Date the outcome was recorded,yes,date,%Y-%m-%d,yes,no
+S25,defendantHasSolicitor,defendant_represented,Whether the defendant has a legal representative,yes,boolean,true/false,no,no
+S26,application_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S26,date_received,received_date,Date the case or application was received,yes,date,%Y-%m-%d,no,no
+S26,hearing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S26,hearing_type,hearing_type,Type of hearing,yes,category,,yes,no
+S26,applicant_role,party_role,Role of a party in the case,yes,category,,no,no
+S26,interp_req,interpreter_required,Whether an interpreter is needed,yes,boolean,true/false,no,no
+S26,fee_paid,fee_amount,Court or tribunal fee paid in pounds,yes,decimal,2 dp,no,no
+S27,court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S27,listing_date,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S27,hearings_listed,,Number of hearings listed that day (not in dictionary: should be flagged for review),no,integer,,no,no
+S27,hearings_effective,,Number of listed hearings that went ahead (not in dictionary: should be flagged for review),no,integer,,no,no
+S27,region,region,Administrative region,yes,category,,no,no
+S28,Claim Number,case_reference,Unique reference number for a case,yes,string,,no,yes
+S28,Judgment Date,judgment_date,Date judgment was entered,yes,date,%d/%m/%Y,yes,no
+S28,Warrant Date,warrant_issue_date,Date an enforcement warrant was issued,yes,date,%d/%m/%Y,yes,no
+S28,Enforcement Method,enforcement_type,Type of enforcement action,yes,category,,no,no
+S28,Judgment Amount,judgment_amount,Amount of the judgment in pounds,yes,decimal,2 dp,yes,no
+S28,Court,court_name,Name of the court or hearing centre,yes,category,,no,no
+S29,case_ref,case_reference,Unique reference number for a case,yes,string,,no,no
+S29,stage,case_status,Current status of the case,yes,category,,no,no
+S29,created_user,created_by,Pseudonymous identifier of the user who created the record,yes,string,,no,no
+S29,doc_count,document_count,Number of documents filed,yes,integer,,no,no
+S29,case_notes,notes,Free-text case notes,yes,text,,yes,no
+S29,legacy_flag,,Legacy system flag with no documented meaning (not in dictionary: should be flagged for review),no,boolean,,no,no
+S30,Case_No,case_reference,Unique reference number for a case,yes,string,,no,yes
+S30,claimAmt,claim_amount,Amount of money claimed in pounds,yes,decimal,2 dp,no,no
+S30,ISSUE DATE,issue_date,Date the claim was issued,yes,date,%Y-%m-%d,no,no
+S30,hrg-dt,hearing_date,Date a hearing is listed to take place,yes,date,%Y-%m-%d,yes,no
+S30,Status,case_status,Current status of the case,yes,category,,no,no
+S30,Track Allocation,track,Track the case is allocated to,yes,category,,no,no
+S30,adj count,adjournment_count,Number of previous adjournments,yes,integer,,no,no
+S31,case_ref,case_reference,Unique reference number for a case,yes,string,,no,yes
+S31,prosecuting_authority,prosecuting_authority,public body or official agency legally authorized to investigate crimes,yes,string,,no,no
+S31,offence_details,offence_details,Offence details,,string,,yes,
+S31,offence_location,offence_location,offence location,yes,string,,yes,
+S31,payment_reference,payment_reference,Payment reference,yes,string,,yes,yes
+S31,time_of_hearing,time_of_hearing,Time of hearing,yes,string,,yes,
