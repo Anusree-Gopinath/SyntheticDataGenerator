@@ -1,7 +1,5 @@
 # SynthGen: LLM-Guided Synthetic Data Generation for Automated Software Testing
 
-Capstone project for the Level 7 AI Data Specialist apprenticeship (ST0763).
-
 SynthGen understands an unfamiliar data schema and generates realistic, rule-compliant
 synthetic test data **without access to real operational records**. Justice case management
 systems are the case study.
