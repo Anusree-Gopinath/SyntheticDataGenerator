@@ -83,6 +83,7 @@ def test_embedding_neighbours_match_synonyms_and_flag_unknowns(dictionary):
 
 
 def test_embedding_learned_model_can_add_a_concept_neighbours_miss(dictionary):
+    pytest.importorskip("sklearn")  # the learned model is a scikit-learn classifier
     from synthgen.schema.embedding_classifier import NO_CONCEPT, EmbeddingClassifier
 
     labelled = pd.DataFrame(
